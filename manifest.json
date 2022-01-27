@@ -1,14 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Vroom",
-  "description": "Alt+V to fast forward videos",
-  "version": "0.1.1",
-  "commands": {
-	  "_execute_browser_action": {
-      "suggested_key": "Alt+V",
-      "description": "Vroom"
-    }
-  },  
+  "description": "Automatically fast forwards youtube adverts",
+  "version": "0.1.1",  
   "content_scripts": [{
     "matches": ["https://*.youtube.com/*"],
     "js": ["skipper.js"]
