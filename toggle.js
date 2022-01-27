@@ -1,12 +1,19 @@
-window.onload = function () {
-    function updateLabel() {
-        var enabled = chrome.extension.getBackgroundPage().enabled;
-        document.getElementById('toggle_button').value = enabled ? "Disabled" : "Enabled";
-    }
-    document.getElementById('toggle_button').onclick = function () {
-        var background = chrome.extension.getBackgroundPage();
-        background.enabled = !background.enabled;
-        updateLabel();
-    };
-    updateLabel();
+var theButton = document.querySelector("button");
+
+function updateButton() {
+    chrome.storage.local.get(['skiptoggle'], result => {
+        theButton.innerHTML = result.skiptoggle ? "Enabled" : "Disabled";
+        theButton.className = result.skiptoggle ? "buttonON" : "buttonOFF";
+    })
 }
+
+function toggleButton(e) {
+    var bool = e.target.className === 'buttonON' ? false : true
+    chrome.storage.local.set({ 'skiptoggle': bool }, result => {
+        updateButton()
+    })
+
+}
+
+updateButton()
+theButton.onclick = toggleButton
