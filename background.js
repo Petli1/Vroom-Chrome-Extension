@@ -1,7 +1,3 @@
-if (document.querySelector("div.ad-showing")) {
-    document.getElementsByTagName("video")[0].playbackRate = 16
-};
-
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.local.set({ 'skiptoggle': false }, result => {
     })
