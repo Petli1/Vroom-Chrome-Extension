@@ -14,8 +14,7 @@
     "js": ["skipper.js"]
   }],          
   "background": {
-   "scripts": ["fastforward.js"],
-   "persistent": false
+   "scripts": ["background.js"]
   },
   "browser_action": {"default icon": "icon.png",
     "default_popup": "popup.html"},
